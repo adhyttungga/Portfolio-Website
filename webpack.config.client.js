@@ -3,7 +3,7 @@ const webpack = require('webpack')
 const CURRENT_WORKING_DIR = process.cwd()
 
 const config = {
-    name: 'browser',
+    name: "browser",
     mode: "development",
     devtool: 'eval-source-map',
     entry: [
@@ -11,7 +11,7 @@ const config = {
         path.join(CURRENT_WORKING_DIR, 'client/main.js')
     ],
     output: {
-        path: path.join(CURRENT_WORKING_DIR, '/dist'),
+        path: path.join(CURRENT_WORKING_DIR , '/dist'),
         filename: 'bundle.js',
         publicPath: '/dist/'
     },
@@ -25,10 +25,10 @@ const config = {
                 ]
             }
         ]
-    },
+    },  
     plugins: [
-        new webpack.HotModuleReplacementPlugin(),
-        new webpack.NoEmitOnErrorsPlugin(),
+            new webpack.HotModuleReplacementPlugin(),
+            new webpack.NoEmitOnErrorsPlugin()
     ],
     resolve: {
         alias: {
