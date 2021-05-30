@@ -2,6 +2,7 @@ import React from 'react'
 import { Route, Switch } from "react-router-dom"
 import Home from './core/Home'
 import Menu from './core/Menu'
+import Footer from './core/Footer'
 
 const MainRouter = () => {
     return (
@@ -10,6 +11,7 @@ const MainRouter = () => {
             <Switch>
                 <Route exact path='/' component={Home}/>
             </Switch>
+            <Footer/>
         </div>
     )
 }
