@@ -8,10 +8,13 @@ import { makeStyles } from '@material-ui/core/styles'
 
 const useStyles = makeStyles(theme => ({
   root: {
+    position: "relative",
+    bottom: 0,
     flexGrow: 1
   },
   message: {
-    flexGrow: 1
+    flexGrow: 1,
+    fontSize: "1em"
   },
   Icon: {
     "&:hover": {
@@ -26,20 +29,20 @@ const Footer = withRouter(() => {
   return (
     <AppBar position="static" className={classes.root}>
       <Toolbar>
-        <Typography variant="body1" className={classes.message}>
+        <Typography variant="h6" className={classes.message}>
           Written & designed with ♥ and support.
         </Typography>
-        <Link rel="noopener" onClick={(e) => {window.open("https://id-id.facebook.com/adhytia.tungga", "_blank"), e.preventDefault}}>
+        <Link rel="noopener" to={{ pathname: "https://id-id.facebook.com/adhytia.tungga" }} target="_blank">
           <IconButton aria-label="Facebook" className={classes.Icon}>
             <FacebookIcon/>
           </IconButton>
         </Link>
-        <Link rel="noopener" onClick={(e) => {window.open("https://www.linkedin.com/in/adhytiatungga/", "_blank"), e.preventDefault}}>
+        <Link rel="noopener" to={{ pathname: "https://www.linkedin.com/in/adhytiatungga/" }} target="_blank">
           <IconButton aria-label="LinkedIn" className={classes.Icon}>
             <LinkedInIcon/>
           </IconButton>
         </Link>
-        <Link rel="noopener" onClick={(e) => {window.open("https://wa.me/6281296883363", "_blank"), e.preventDefault}}>
+        <Link rel="noopener" to={{ pathname: "https://wa.me/6281296883363" }} target="_blank">
           <IconButton aria-label="Whatsapp" className={classes.Icon}>
             <WhatsAppIcon/>
           </IconButton>

@@ -38,7 +38,7 @@ export default function Home() {
             <Paper elevation={0} className={classes.Paper}>
                 <Grid container direction="row" justify="flex-end" className={classes.grid}>
                     <CardContent>
-                        <Typography variant="h4" component="span" align="right" className={classes.title}>
+                        <Typography variant="h3" component="span" align="right" className={classes.title}>
                             Hi, I am Adhytia.<br/>
                             A Data Scientist & Web Developer.<br/>
                             Welcome to my portfolio!

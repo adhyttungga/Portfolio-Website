@@ -28,7 +28,7 @@ const useStyles = makeStyles(theme => ({
   }
 }))
 
-const Work = withRouter(() => {
+const Work = () => {
   const classes = useStyles()
   return (
     <Paper elevation={0}>
@@ -46,6 +46,6 @@ const Work = withRouter(() => {
       </Link>
     </Paper>
   )
-})
+}
 
 export default Work
