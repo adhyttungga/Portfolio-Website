@@ -27,7 +27,7 @@ const Menu = withRouter(({history}) => {
     <AppBar position="static" className={classes.Appbar}>
         <Toolbar>
             <Typography variant="h6" color="inherit" className={classes.Logo}>
-                Adhytia Tungga, S.Si
+                Adhytia Tungga, BS
             </Typography>
             <Link to="/">
               <Button style={isActive(history, "/")}>Work</Button>

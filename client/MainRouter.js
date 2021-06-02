@@ -5,6 +5,7 @@ import Menu from './core/Menu'
 import Footer from './core/Footer'
 import Contact from './core/Contact'
 import Resume from './core/Resume'
+import DataScience from './core/DataScience'
 
 const MainRouter = () => {
     return (
@@ -14,6 +15,7 @@ const MainRouter = () => {
                 <Route exact path='/' component={Home}/>
                 <Route path='/contact' component={Contact}/>
                 <Route path='/resume' component={Resume}/>
+                <Route path='/data-science' component={DataScience}/>
             </Switch>
             <Footer/>
         </div>
