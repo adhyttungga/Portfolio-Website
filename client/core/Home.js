@@ -12,22 +12,33 @@ import profilePict from './../assets/images/profilePict.jpeg'
 
 const useStyles = makeStyles(theme => ({
     Paper: {
+        overflow: "auto",
         position: "relative",
         maxWidth: 1000,
-        margin: `${theme.spacing(10)}px auto`
-    },
-    grid: {
-        padding: "0 40px"
+        margin: `${theme.spacing(10)}px auto`,
+        '@media (max-width: 600px)': {
+            padding: `${theme.spacing(0)}px ${theme.spacing(1.5)}px`
+        }
     },
     title: {
         position: "absolute",
-        left: 40, top: "70%",
-        maxWidth: 1000,
-        padding: `${theme.spacing(3)}px ${theme.spacing(2.5)}px ${theme.spacing(2)}px`,
-        color: theme.palette.protectedTitle
+        left: 40, bottom: 20,
+        float: "left",
+        padding: `${theme.spacing(3)}px ${theme.spacing(1.5)}px ${theme.spacing(2)}px`,
+        color: theme.palette.protectedTitle,
+        '@media (max-width: 600px)': {
+            position: "relative",
+            left: 0, bottom:0,
+            width: "100%",
+            padding: `${theme.spacing(3)}px ${theme.spacing(0)}px ${theme.spacing(2)}px`,
+        }
     },
     media: {
-        maxWidth: "60%"
+        width: "60%",
+        float: "right",
+        '@media (max-width: 600px)': {
+            width: "100%"
+        }
     }
 }))
 
@@ -36,16 +47,14 @@ export default function Home() {
     return (
         <div>
             <Paper elevation={0} className={classes.Paper}>
-                <Grid container direction="row" justify="flex-end" className={classes.grid}>
-                    <CardContent>
-                        <Typography variant="h3" component="span" align="right" className={classes.title}>
-                            Hi, I am Adhytia.<br/>
-                            A Data Scientist & Web Developer.<br/>
-                            Welcome to my portfolio!
-                        </Typography>
-                    </CardContent>
-                    <CardMedia component="img" className={classes.media} image={profilePict} title="Profile Picture"/>
-                </Grid>
+                <CardContent className={classes.title}>
+                    <Typography variant="h3" component="p" align="right">
+                        Hi, I am Adhytia.<br/>
+                        A Data Scientist & Web Developer.<br/>
+                        Welcome to my portfolio!
+                    </Typography>
+                </CardContent>
+                <CardMedia component="img" className={classes.media} image={profilePict} title="Profile Picture"/>
             </Paper>
             <Work/>
             <Paper elevation={0} className={classes.Paper}>

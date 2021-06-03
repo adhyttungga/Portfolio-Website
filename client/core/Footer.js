@@ -12,9 +12,18 @@ const useStyles = makeStyles(theme => ({
     bottom: 0,
     flexGrow: 1
   },
+  toolbar: {
+    '@media (max-width: 600px)': {
+      flexWrap: "wrap"
+    }
+  },
   message: {
     flexGrow: 1,
-    fontSize: "1em"
+    fontSize: "1em",
+    '@media (max-width: 600px)': {
+      width: "100%",
+      fontSize: "4.5vw"
+    }
   },
   Icon: {
     "&:hover": {
@@ -28,7 +37,7 @@ const Footer = withRouter(() => {
   const classes = useStyles()
   return (
     <AppBar position="static" className={classes.root}>
-      <Toolbar>
+      <Toolbar className={classes.toolbar}>
         <Typography variant="h6" className={classes.message}>
           Written & designed with ♥ and support.
         </Typography>

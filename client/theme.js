@@ -3,7 +3,7 @@ import { pink } from '@material-ui/core/colors'
 
 const theme = createMuiTheme({
     typography: {
-        useNextVariants: true,
+        useNextVariants: true
     },
     palette: {
         primary: {
@@ -23,5 +23,19 @@ const theme = createMuiTheme({
             type: 'light'
     }
 })
+
+theme.typography.h3 = {
+    fontSize: "5.5vw",
+    fontWeight: 400,
+    fontFamily: [
+        'Arial',
+        'sans-serif',
+        '"Segoe UI Emoji"',
+        '"Segoe UI Symbol"',
+    ].join(','),
+    '@media (min-width: 600px)': {
+        fontSize: "2.2rem"
+    }
+}
 
 export default theme
