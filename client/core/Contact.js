@@ -2,28 +2,41 @@ import React from 'react'
 import ButtonMailto from './ButtonMailto'
 import { Link } from 'react-router-dom'
 import { makeStyles } from '@material-ui/core/styles'
-import { Paper, Typography } from '@material-ui/core'
+import { Paper, Typography, Grow } from '@material-ui/core'
 
 const useStyles = makeStyles(theme => ({
   root: {
-    maxWidth: "70%",
+    maxWidth: "100%",
     margin: `50vh auto`
   },
   Contact: {
-    margin: `${theme.spacing(5)}px auto`
+    margin: `${theme.spacing(3)}px auto`
   }
 }))
 
 const Contact = () => {
   const classes = useStyles()
+  const [visible, setVisible] = React.useState(false)
+  React.useEffect(() => {
+    setVisible(true)
+  })
+
   return (
     <Paper elevation={0} className={classes.root}>
-      <Typography variant="h3" component="p" align="center" className={classes.Contact}>
-        <ButtonMailto mailto="mailto:adhyttungga.jkt@gmail.com" label="adhyttungga.jkt@gmail.com"/>
-      </Typography>
-      <Typography variant="h4" component="p" align="center" className={classes.Contact}>
-        You can also find me on my <Link rel="noopener" to={{ pathname: "https://www.linkedin.com/in/adhytiatungga/"}} target="_blank">LinkedIn</Link>
-      </Typography>
+      <Grow in={visible}>
+        <Typography variant="h2" component="p" align="center" className={classes.Contact}>
+          <ButtonMailto mailto="mailto:adhyttungga.jkt@gmail.com" label="adhyttungga.jkt@gmail.com"/>
+        </Typography>
+      </Grow>
+      <Grow 
+        in={visible} 
+        style={{ transformOrigin: '50% 50%' }} 
+        {...(visible ? { timeout: 1000 } : {})}
+      >
+        <Typography variant="h6" component="p" align="center" className={classes.Contact}>
+          You can also find me on my <Link rel="noopener" to={{ pathname: "https://www.linkedin.com/in/adhytiatungga/"}} target="_blank">LinkedIn</Link>
+        </Typography>
+      </Grow>
     </Paper>
   )
 }

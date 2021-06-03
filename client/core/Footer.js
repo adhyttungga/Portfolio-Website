@@ -22,7 +22,7 @@ const useStyles = makeStyles(theme => ({
     fontSize: "1em",
     '@media (max-width: 600px)': {
       width: "100%",
-      fontSize: "4.5vw"
+      fontSize: "3.5vw"
     }
   },
   Icon: {
