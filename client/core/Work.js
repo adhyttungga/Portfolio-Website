@@ -38,7 +38,7 @@ const Work = (props) => {
   })
 
   return (
-    <Slide direction="up"
+    <Slide direction="down"
       in={trigger}
       {...(trigger ? { timeout: 1000 } : {})}
       mountOnEnter

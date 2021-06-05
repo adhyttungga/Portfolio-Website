@@ -4,7 +4,7 @@ import CardContent from '@material-ui/core/CardContent'
 import CardMedia from '@material-ui/core/CardMedia'
 import Typography from '@material-ui/core/Typography'
 import { makeStyles } from '@material-ui/core/styles'
-import { Link } from 'react-router-dom'
+import { a } from 'react-router-dom'
 import Profile from './../assets/images/resume.jpg'
 const useStyles = makeStyles(theme => ({
   root: {},
@@ -257,71 +257,71 @@ const Certificates = (classes) => {
           → certificates
         </Typography>
         <CardContent className={classes.Certificate}>
-          <Link rel="noopener" to={{ pathname: "https://www.codepolitan.com/c/KLJP28D"}} target="_blank">
+          <a rel="noopener noreferrer" href="https://www.codepolitan.com/c/KLJP28D" target="_blank">
             <Typography variant="body2" component="p">
               <em>Belajar Dasar-Dasar HTML dan CSS</em> (CODEPOLITAN)
             </Typography>
-          </Link>
-          <Link rel="noopener" to={{ pathname: "https://www.codepolitan.com/c/9LSJNXQ"}} target="_blank">
+          </a>
+          <a rel="noopener noreferrer" href="https://www.codepolitan.com/c/9LSJNXQ" target="_blank">
             <Typography variant="body2" component="p">
               <em>Belajar JavaScript Dasar</em> (CODEPOLITAN)
             </Typography>
-          </Link>
-          <Link rel="noopener" to={{ pathname: "https://www.codepolitan.com/c/HF6RCYP"}} target="_blank">
+          </a>
+          <a rel="noopener noreferrer" href="https://www.codepolitan.com/c/HF6RCYP" target="_blank">
             <Typography variant="body2" component="p">
               <em>Belajar JQuery Dasar</em> (CODEPOLITAN)
             </Typography>
-          </Link>
-          <Link rel="noopener" to={{ pathname: "https://www.freecodecamp.org/certification/cap7_nemo/front-end-libraries"}} target="_blank">
+          </a>
+          <a rel="noopener noreferrer" href="https://www.freecodecamp.org/certification/cap7_nemo/front-end-libraries" target="_blank">
             <Typography variant="body2" component="p">
               Front End Libraries (freeCodeCamp)
             </Typography>
-          </Link>
-          <Link rel="noopener" to={{ pathname: "https://www.dicoding.com/certificates/53XEEOM1VXRN"}} target="_blank">
+          </a>
+          <a rel="noopener noreferrer" href="https://www.dicoding.com/certificates/53XEEOM1VXRN" target="_blank">
             <Typography variant="body2" component="p">
               <em>Memulai Pemrograman dengan Python</em> (dicoding)
             </Typography>
-          </Link>
-          <Link rel="noopener" to={{ pathname: "https://www.dicoding.com/certificates/JLX117K4JX72"}} target="_blank">
+          </a>
+          <a rel="noopener noreferrer" href="https://www.dicoding.com/certificates/JLX117K4JX72" target="_blank">
             <Typography variant="body2" component="p">
               <em>Belajar Dasar Visualisasi Data</em> (dicoding)
             </Typography>
-          </Link>
-          <Link rel="noopener" to={{ pathname: "https://www.dicoding.com/certificates/07Z6L09GMPQR"}} target="_blank">
+          </a>
+          <a rel="noopener noreferrer" href="https://www.dicoding.com/certificates/07Z6L09GMPQR" target="_blank">
             <Typography variant="body2" component="p">
               <em>Belajar Machine Learning untuk Pemula</em> (dicoding)
             </Typography>
-          </Link>
-          <Link rel="noopener" to={{ pathname: "https://www.freecodecamp.org/certification/cap7_nemo/data-analysis-with-python-v7"}} target="_blank">
+          </a>
+          <a rel="noopener noreferrer" href="https://www.freecodecamp.org/certification/cap7_nemo/data-analysis-with-python-v7" target="_blank">
             <Typography variant="body2" component="p">
               Data Analysis with Python (freeCodeCamp)
             </Typography>
-          </Link>
-          <Link rel="noopener" to={{ pathname: "https://www.kaggle.com/learn/certification/adhytiatungga/data-cleaning"}} target="_blank">
+          </a>
+          <a rel="noopener noreferrer" href="https://www.kaggle.com/learn/certification/adhytiatungga/data-cleaning" target="_blank">
             <Typography variant="body2" component="p">
               Data Cleaning (kaggle)
             </Typography>
-          </Link>
-          <Link rel="noopener" to={{ pathname: "https://www.kaggle.com/learn/certification/adhytiatungga/data-visualization"}} target="_blank">
+          </a>
+          <a rel="noopener noreferrer" href="https://www.kaggle.com/learn/certification/adhytiatungga/data-visualization" target="_blank">
             <Typography variant="body2" component="p">
               Data Visualization (kaggle)
             </Typography>
-          </Link>
-          <Link rel="noopener" to={{ pathname: "https://www.kaggle.com/learn/certification/adhytiatungga/intro-to-sql"}} target="_blank">
+          </a>
+          <a rel="noopener noreferrer" href="https://www.kaggle.com/learn/certification/adhytiatungga/intro-to-sql" target="_blank">
             <Typography variant="body2" component="p">
               Intro to SQL (kaggle)
             </Typography>
-          </Link>
-          <Link rel="noopener" to={{ pathname: "https://www.codepolitan.com/c/VH9QL1S"}} target="_blank">
+          </a>
+          <a rel="noopener noreferrer" href="https://www.codepolitan.com/c/VH9QL1S" target="_blank">
             <Typography variant="body2" component="p">
               <em>Belajar MongoDB untuk Pemula</em> (CODEPOLITAN)
             </Typography>
-          </Link>
-          <Link rel="noopener" to={{ pathname: "https://www.codepolitan.com/c/PZCJK01"}} target="_blank"> 
+          </a>
+          <a rel="noopener noreferrer" href="https://www.codepolitan.com/c/PZCJK01" target="_blank"> 
             <Typography variant="body2" component="p">
               <em>Belajar GIT untuk Pemula</em> (CODEPOLITAN)
             </Typography>
-          </Link>
+          </a>
         </CardContent>
       </Paper>
   )

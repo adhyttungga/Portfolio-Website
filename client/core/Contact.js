@@ -34,7 +34,7 @@ const Contact = () => {
         {...(visible ? { timeout: 1000 } : {})}
       >
         <Typography variant="h6" component="p" align="center" className={classes.Contact}>
-          You can also find me on my <Link rel="noopener" to={{ pathname: "https://www.linkedin.com/in/adhytiatungga/"}} target="_blank">LinkedIn</Link>
+          You can also find me on my <a rel="noopener noreferrer" href="https://www.linkedin.com/in/adhytiatungga/" target="_blank">LinkedIn</a>
         </Typography>
       </Grow>
     </Paper>

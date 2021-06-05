@@ -41,21 +41,21 @@ const Footer = withRouter(() => {
         <Typography variant="h6" className={classes.message}>
           Written & designed with ♥ and support.
         </Typography>
-        <Link rel="noopener" to={{ pathname: "https://id-id.facebook.com/adhytia.tungga" }} target="_blank">
+        <a rel="noopener noreferrer" href="https://id-id.facebook.com/adhytia.tungga" target="_blank">
           <IconButton aria-label="Facebook" className={classes.Icon}>
             <FacebookIcon/>
           </IconButton>
-        </Link>
-        <Link rel="noopener" to={{ pathname: "https://www.linkedin.com/in/adhytiatungga/" }} target="_blank">
+        </a>
+        <a rel="noopener noreferrer" href="https://www.linkedin.com/in/adhytiatungga/" target="_blank">
           <IconButton aria-label="LinkedIn" className={classes.Icon}>
             <LinkedInIcon/>
           </IconButton>
-        </Link>
-        <Link rel="noopener" to={{ pathname: "https://wa.me/6281296883363" }} target="_blank">
+        </a>
+        <a rel="noopener noreferrer" href="https://wa.me/6281296883363" target="_blank">
           <IconButton aria-label="Whatsapp" className={classes.Icon}>
             <WhatsAppIcon/>
           </IconButton>
-        </Link>
+        </a>
       </Toolbar>
     </AppBar>
   )

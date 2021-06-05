@@ -1,16 +1,17 @@
 import React from 'react'
-import ReactDOM from 'react-dom'
 import { makeStyles } from "@material-ui/core/styles"
 import Paper from '@material-ui/core/Paper'
 import CardContent from '@material-ui/core/CardContent'
 import CardMedia from '@material-ui/core/CardMedia'
 import Grow from '@material-ui/core/Grow'
+import Slide from '@material-ui/core/Slide'
 import Typography from '@material-ui/core/Typography'
-import { Link } from 'react-router-dom'
-import Work from './Work'
+import { useScrollTrigger } from '@material-ui/core'
 import ButtonMailto from './ButtonMailto'
 import profilePict from './../assets/images/profilePict.jpeg'
-import { useScrollTrigger } from '@material-ui/core'
+import DataScience from './../assets/images/DataScience.png'
+import WebDev from './../assets/images/WebDevelopment.jpg'
+import { Link } from 'react-router-dom'
 
 const useStyles = makeStyles(theme => ({
     Paper: {
@@ -32,7 +33,7 @@ const useStyles = makeStyles(theme => ({
             position: "relative",
             left: 0, bottom:0,
             width: "100%",
-            padding: `${theme.spacing(3)}px ${theme.spacing(0)}px ${theme.spacing(2)}px`,
+            padding: `${theme.spacing(3)}px 0 ${theme.spacing(2)}px`,
         }
     },
     media: {
@@ -41,14 +42,46 @@ const useStyles = makeStyles(theme => ({
         '@media (max-width: 600px)': {
             width: "100%"
         }
+    },
+    wrapper: {
+        display: "flex",
+        flexFlow: "column"
+    },
+    work: {
+        margin: `${theme.spacing(2)}px 0`
+    },
+    relative: {
+        position: "relative"
+    },
+    loaded: {
+        width: "100%"
+    },
+    overlay: {
+        position: "absolute",
+        top: 0, 
+        left: 0,
+        padding: 0,
+        width: "100%",
+        height: "100%",
+        backgroundColor: "black",
+        transition: "0.8s ease",
+        opacity: 0,
+        "&:hover": {
+            opacity: "0.5"
+        }
     }
 }))
 
-export default function Home(props) {
+export default function Home() {
     const classes = useStyles()
     const [visible, setVisible] = React.useState({
         itemOne: false
     })
+    const trigger = useScrollTrigger({
+        disableHysteresis: true, 
+        threshold: 100
+    })
+    const props = { classes, trigger }
 
     React.useEffect(() => {
         setVisible(state => ({...state, itemOne: true}))
@@ -71,9 +104,45 @@ export default function Home(props) {
                     <CardMedia component="img" className={classes.media} image={profilePict} title="Profile Picture"/>
                 </Paper>
             </Grow>
-            <Work {...props}/>
-            <Paper elevation={0} className={classes.Paper}>
-                {props.children}
+            <Paper elevation={0} className={classes.wrapper}>
+                <Work {...props}/> {/* add margin */}
+                <Resume {...props}/>
+            </Paper>
+        </div>
+    )
+}
+
+const Work = (props) => {
+    return (
+        <Slide direction="up"
+            in={props.trigger}
+            {...(props.trigger ? { timeout: 1000 } : {})}
+        >
+            <Paper elevation={0} className={props.classes.work}>
+                <Link to="/data-science">
+                    <Paper elevation={0} className={props.classes.relative}>
+                        <CardMedia component="img" className={props.classes.loaded} image={DataScience} title="Data Science"/>
+                        <CardMedia component="div" className={props.classes.overlay}/>
+                    </Paper>
+                </Link>
+                <Link to="/web-development">
+                    <Paper elevation={0} className={props.classes.relative}>
+                        <CardMedia component="img" className={props.classes.loaded} image={WebDev} title="Web Developement"/>
+                        <CardMedia component="div" className={props.classes.overlay}/>
+                    </Paper>
+                </Link>
+            </Paper>
+        </Slide>
+    )
+}
+
+const Resume = (props) => {
+    return (
+        <Grow in={props.trigger}
+            style={{ transformOrigin: '50% 50%' }} 
+            {...(props.trigger ? { timeout: 1000 } : {})}
+            >
+            <Paper elevation={0} className={props.classes.Paper}>
                 <CardContent> 
                     <Typography variant="h6" component="p" align="center">
                         Check out my <Link to="/resume">resume</Link> for more→
@@ -83,6 +152,6 @@ export default function Home(props) {
                     </Typography>
                 </CardContent>
             </Paper>
-        </div>
+        </Grow>
     )
 }
