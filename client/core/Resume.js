@@ -4,7 +4,6 @@ import CardContent from '@material-ui/core/CardContent'
 import CardMedia from '@material-ui/core/CardMedia'
 import Typography from '@material-ui/core/Typography'
 import { makeStyles } from '@material-ui/core/styles'
-import { a } from 'react-router-dom'
 import Profile from './../assets/images/resume.jpg'
 const useStyles = makeStyles(theme => ({
   root: {},
@@ -114,7 +113,7 @@ const PersonalData = (classes) => {
               Tensorflow/Keras
             </Typography>
             <Typography variant="body1" component="p">
-              HTML/CSS/Javascript/PHP
+              HTML/CSS/Javascript/PHP/NodeJs
             </Typography>
             <Typography variant="body1" component="p">
               JQuery/ReactJS
@@ -125,10 +124,20 @@ const PersonalData = (classes) => {
           </CardContent>
           <CardContent className={classes.right}>
           <Typography variant="body1" component="p">
-            Bachelor of Science degree holder with major in physics and specialized in computational and instrumentation. 
+            Bachelor of Science degree holder with major in physics and specialized in computational and instrumentation.
+          </Typography>
+          <Typography variant="body1" component="p">
+            <br/>
+          </Typography>
+          <Typography variant="body1" component="p">
             Eager to apply academic and professional background towards launching a successful career as Web Developer or Data Scientist. 
             Experience with object-oriented programming, developing-testing code, designing interface, interpreting and analyzing data. 
             Proficient knowledge in statistics, mathematics, and analytics. 
+          </Typography>
+          <Typography variant="body1" component="p">
+            <br/>
+          </Typography>
+          <Typography variant="body1" component="p">
             Excellent understanding of analytics tools for effective analyses of data.
             Quickly learn and master new technology, eager for working in both team and self-directed settings.
           </Typography>

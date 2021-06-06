@@ -105,7 +105,7 @@ export default function Home() {
                 </Paper>
             </Grow>
             <Paper elevation={0} className={classes.wrapper}>
-                <Work {...props}/> {/* add margin */}
+                <Work {...props}/>
                 <Resume {...props}/>
             </Paper>
         </div>

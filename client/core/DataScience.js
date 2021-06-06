@@ -10,12 +10,19 @@ import loanClustering from './../assets/images/loan-clustering.png'
 import loanClassification from './../assets/images/loan-classification.png'
 import rpsClassification from './../assets/images/rps-classification.png'
 
-const useStyles = makeStyles(theme => ({}))
+const useStyles = makeStyles(theme => ({
+  jumbotron: {
+    margin: `${theme.spacing(20)}px 0`
+  }
+}))
 
 export default function DataScience() {
   const classes = useStyles()
   return (
     <Paper elevation={0}>
+      <Paper elevation={0} className={classes.jumbotron}>
+        <Typography variant="h2" component="p" align="center"><strong>data-science</strong></Typography>
+      </Paper>
       <Paper elevation={0}>
         <CardContent>
           <a rel=" noopener noreferrer"  href="https://www.kaggle.com/adhytiatungga/netflix-data-analysis-visualization"  target="_blank">

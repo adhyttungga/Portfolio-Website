@@ -21,7 +21,7 @@ const config = {
                 ]
             },
             {
-                test: /\.(ttf|eot|svg|gif|jpg|jpeg|png)(\?[/s/S]+)?$/,
+                test: /\.(ttf|eot|svg|gif|jpg|jpeg|png|ico)(\?[/s/S]+)?$/,
                 use: 'file-loader'
             }
         ]
