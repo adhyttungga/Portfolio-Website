@@ -2,6 +2,7 @@ import React from 'react'
 import { makeStyles } from '@material-ui/core/styles'
 import Paper from '@material-ui/core/Paper'
 import Grow from '@material-ui/core/Grow'
+import Slide from '@material-ui/core/Slide'
 import Typography from '@material-ui/core/Typography'
 
 const useStyles = makeStyles(theme => ({
@@ -26,22 +27,22 @@ const WebDev = () => {
     itemOne: false,
     itemTwo: false,
     itemThree: false,
+    itemFour: false
   })
 
   const refOne = React.useRef(null),
-  refTwo = React.useRef(null),
-  refThree = React.useRef(null)
+  refTwo = React.useRef(null)
   
   React.useEffect(() => {
     window.scrollTo(0, 0)
 
+    setShow(state => ({ ...state, itemFour: true}))
     setShow(state => ({ ...state, itemThree: true}))
 
     const topPos = (e) => e.getBoundingClientRect().top
     const divOnePos = topPos(refOne.current),
     divTwoPos = topPos(refTwo.current)
     
-
     const onScroll = () => {
       const scrollPos = window.scrollY + window.innerHeight
       if (divOnePos < scrollPos) {
@@ -49,7 +50,6 @@ const WebDev = () => {
       } else if (divTwoPos < scrollPos) {
         setShow(state => ({ ...state, itemTwo: true }))
       }
-      console.log(divOnePos, divTwoPos, scrollPos)
     }
 
     window.addEventListener("scroll", onScroll)
@@ -59,13 +59,15 @@ const WebDev = () => {
   return (
     <React.Fragment>
       <Paper elevation={0} className={classes.wrapper}>
+        <Slide in={show.itemFour} direction="up">
         <Paper elevation={0} className={classes.jumbotron} id="back-to-top-anchor">
           <Typography variant="h2" component="p" align="center">
             <strong>web-development</strong>
           </Typography>
         </Paper>
+        </Slide>
         <Grow in={show.itemThree}>
-          <Paper elevation={0} className={classes.div} ref={refThree}>
+          <Paper elevation={0} className={classes.div}>
             <p>tag here</p>
             <p>tag here</p>
             <p>tag here</p>

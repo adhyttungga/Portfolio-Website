@@ -37,7 +37,7 @@ const useStyles = makeStyles(theme => ({
         }
     },
     media: {
-        width: "60%",
+        width: "40%",
         float: "right",
         '@media (max-width: 600px)': {
             width: "100%"
@@ -75,25 +75,44 @@ const useStyles = makeStyles(theme => ({
 export default function Home() {
     const classes = useStyles()
     const [visible, setVisible] = React.useState({
-        itemOne: false
+        itemOne: false,
+        itemTwo: false,
+        itemThree: false
     })
-    const trigger = useScrollTrigger({
-        disableHysteresis: true, 
-        threshold: 100
-    })
-    const props = { classes, trigger }
+    
+    const props = { classes, visible }
+
+    const refOne = React.useRef(null),
+    refTwo = React.useRef(null)
 
     React.useEffect(() => {
         window.scrollTo(0, 0)
         
-        setVisible(state => ({...state, itemOne: true}))
+        setVisible(state => ({...state, itemThree: true}))
+
+        const topPos = (e) => e.getBoundingClientRect().top
+        const divOnePos = topPos(refOne.current),
+        divTwoPos = topPos(refTwo.current)
+
+        const onScroll = () => {
+            const scrollPos = window.scrollY + window.innerHeight
+
+            if (divOnePos < scrollPos) {
+                setVisible(state => ({ ...state, itemOne: true }))
+            } else if (divTwoPos < scrollPos) {
+                setVisible(state => ({ ...state, itemTwo: true }))
+            }
+        }
+
+        window.addEventListener("scroll", onScroll)
+        return () => window.removeEventListener("scroll", onScroll)
     }, [])
     
     return (
         <div>
-            <Grow in={visible.itemOne}
+            <Grow in={visible.itemThree}
                 style={{ transformOrigin: 'bottom' }} 
-                {...(visible ? { timeout: 1000 } : {})}
+                {...(visible.itemThree ? { timeout: 1000 } : {})}
             >
                 <Paper elevation={0} className={classes.Paper}>
                     <CardContent className={classes.title}>
@@ -107,20 +126,20 @@ export default function Home() {
                 </Paper>
             </Grow>
             <Paper elevation={0} className={classes.wrapper}>
-                <Work {...props}/>
-                <Resume {...props}/>
+                <Work {...props} ref={refTwo}/>
+                <Resume {...props} ref={refOne}/>
             </Paper>
         </div>
     )
 }
 
-const Work = (props) => {
+const Work = React.forwardRef((props, ref) => {
     return (
-        <Slide direction="up"
-            in={props.trigger}
-            {...(props.trigger ? { timeout: 1000 } : {})}
+        <Slide direction="right"
+            in={props.visible.itemTwo}
+            {...(props.visible.itemTwo ? { timeout: 1000 } : {})}
         >
-            <Paper elevation={0} className={props.classes.work}>
+            <Paper elevation={0} className={props.classes.work} ref={ref}>
                 <Link to="/data-science">
                     <Paper elevation={0} className={props.classes.relative}>
                         <CardMedia component="img" className={props.classes.loaded} image={DataScience} title="Data Science"/>
@@ -136,15 +155,15 @@ const Work = (props) => {
             </Paper>
         </Slide>
     )
-}
+})
 
-const Resume = (props) => {
+const Resume = React.forwardRef((props, ref) => {
     return (
-        <Grow in={props.trigger}
+        <Grow in={props.visible.itemOne}
             style={{ transformOrigin: '50% 50%' }} 
-            {...(props.trigger ? { timeout: 1000 } : {})}
+            {...(props.visible.itemOne ? { timeout: 1000 } : {})}
             >
-            <Paper elevation={0} className={props.classes.Paper}>
+            <Paper elevation={0} className={props.classes.Paper} ref={ref}>
                 <CardContent> 
                     <Typography variant="h6" component="p" align="center">
                         Check out my <Link to="/resume">resume</Link> for more→
@@ -156,4 +175,4 @@ const Resume = (props) => {
             </Paper>
         </Grow>
     )
-}
+})
