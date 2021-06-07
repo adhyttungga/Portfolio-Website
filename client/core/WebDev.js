@@ -33,20 +33,23 @@ const WebDev = () => {
   refThree = React.useRef(null)
   
   React.useEffect(() => {
+    window.scrollTo(0, 0)
+
+    setShow(state => ({ ...state, itemThree: true}))
+
     const topPos = (e) => e.getBoundingClientRect().top
     const divOnePos = topPos(refOne.current),
     divTwoPos = topPos(refTwo.current)
     
-    setShow(state => ({ ...state, itemThree: true}))
 
     const onScroll = () => {
-      const scrollPos = window.scrollY + 2*window.innerHeight
+      const scrollPos = window.scrollY + window.innerHeight
       if (divOnePos < scrollPos) {
         setShow(state => ({ ...state, itemOne: true }))
       } else if (divTwoPos < scrollPos) {
         setShow(state => ({ ...state, itemTwo: true }))
       }
-      console.log(divTwoPos, divOnePos, scrollPos)
+      console.log(divOnePos, divTwoPos, scrollPos)
     }
 
     window.addEventListener("scroll", onScroll)
@@ -56,7 +59,7 @@ const WebDev = () => {
   return (
     <React.Fragment>
       <Paper elevation={0} className={classes.wrapper}>
-        <Paper elevation={0} className={classes.jumbotron}>
+        <Paper elevation={0} className={classes.jumbotron} id="back-to-top-anchor">
           <Typography variant="h2" component="p" align="center">
             <strong>web-development</strong>
           </Typography>

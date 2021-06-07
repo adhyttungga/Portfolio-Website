@@ -84,6 +84,8 @@ export default function Home() {
     const props = { classes, trigger }
 
     React.useEffect(() => {
+        window.scrollTo(0, 0)
+        
         setVisible(state => ({...state, itemOne: true}))
     }, [])
     

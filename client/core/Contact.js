@@ -17,9 +17,12 @@ const useStyles = makeStyles(theme => ({
 const Contact = () => {
   const classes = useStyles()
   const [visible, setVisible] = React.useState(false)
+  
   React.useEffect(() => {
     setVisible(true)
-  })
+
+    window.scrollTo(0, 0)
+  }, [])
 
   return (
     <Paper elevation={0} className={classes.root}>

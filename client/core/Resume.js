@@ -5,6 +5,7 @@ import CardMedia from '@material-ui/core/CardMedia'
 import Typography from '@material-ui/core/Typography'
 import { makeStyles } from '@material-ui/core/styles'
 import Profile from './../assets/images/resume.jpg'
+
 const useStyles = makeStyles(theme => ({
   root: {},
   flex: {
@@ -37,6 +38,11 @@ const useStyles = makeStyles(theme => ({
 
 export default function Resume() {
   const classes = useStyles()
+
+  React.useEffect(() => {
+    window.scrollTo(0, 0)
+  }, [])
+
   return (
     <Paper elevation={0} className={classes.root}>
       <PersonalData {...classes}/>

@@ -18,6 +18,11 @@ const useStyles = makeStyles(theme => ({
 
 export default function DataScience() {
   const classes = useStyles()
+
+  React.useEffect(() => {
+    window.scrollTo(0, 0)
+  }, [])
+  
   return (
     <Paper elevation={0}>
       <Paper elevation={0} className={classes.jumbotron}>
