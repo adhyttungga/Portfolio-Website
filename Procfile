@@ -1,1 +1,1 @@
-web: NODE_ENV=production node ./dist/server.generated.js
+web: SET NODE_ENV=production node ./dist/server.generated.js
