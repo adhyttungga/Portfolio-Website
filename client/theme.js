@@ -7,16 +7,16 @@ const theme = createMuiTheme({
     },
     palette: {
         primary: {
-            light: '#5c67a3',
-            main: '#3f4771',
-            dark: '#2e355b',
-            contrastText: '#fff',
+            dark: '#000000',
+            light: '#fffdfe',
+            main: '#fafafa',
+            contrastText: '#ff7f11'
         },
         secondary: {
-            light: '#ff79b0',
-            main: '#ff4081',
-            dark: '#c60055',
-            contrastText: '#000',
+            light: '#d82f45',
+            main: '#8fccf9',
+            dark: '#9a0c28',
+            contrastText: '#fffdfe',
         },
             openTitle: '#3f4771',
             protectedTitle: pink['400'],
@@ -42,6 +42,7 @@ theme.typography.h3 = {
     fontSize: "5.5vw",
     fontWeight: 400,
     fontFamily: [
+        'Roboto',
         'Arial',
         'sans-serif',
         '"Segoe UI Emoji"',
@@ -53,11 +54,11 @@ theme.typography.h3 = {
 }
 
 theme.typography.h6 = {
-    fontSize: "3.8vw",
+    fontSize: "4.3vw",
     fontWeight: 400,
-    fontFamily: "sans-serif",
+    fontFamily: "Roboto",
     "@media (min-width: 600px)": {
-        fontSize: "1.25rem"
+        fontSize: "1.4rem"
     }
 }
 

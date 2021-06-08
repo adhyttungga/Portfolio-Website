@@ -12,8 +12,15 @@ import loanClassification from './../assets/images/loan-classification.png'
 import rpsClassification from './../assets/images/rps-classification.png'
 
 const useStyles = makeStyles(theme => ({
+  Paper: {
+    backgroundColor: theme.palette.primary.main
+  },
   jumbotron: {
-    margin: `${theme.spacing(20)}px 0`
+    margin: `${theme.spacing(20)}px 0`,
+    backgroundColor: theme.palette.primary.main
+  },
+  link: {
+    color: theme.palette.secondary.dark
   }
 }))
 
@@ -64,7 +71,7 @@ export default function DataScience() {
   }, [])
   
   return (
-    <Paper elevation={0}>
+    <Paper elevation={0} className={classes.Paper}>
       <Slide 
         in={show.itemSix}
         direction="right"
@@ -74,14 +81,14 @@ export default function DataScience() {
           <Typography variant="h2" component="p" align="center"><strong>data-science</strong></Typography>
         </Paper>
       </Slide>
-      <Paper elevation={0}>
+      <Paper elevation={0} className={classes.Paper}>
         <Slide 
           in={show.itemFive}
           direction="right"
           {...(show.itemFive ? { timeout: 700 } : {})}
         >
           <CardContent>
-            <a rel=" noopener noreferrer"  href="https://www.kaggle.com/adhytiatungga/netflix-data-analysis-visualization"  target="_blank">
+            <a className={classes.link} rel=" noopener noreferrer"  href="https://www.kaggle.com/adhytiatungga/netflix-data-analysis-visualization"  target="_blank">
               <Typography variant="h3" component="p">
                 netflix data analysis and visualization 
               </Typography>
@@ -96,14 +103,14 @@ export default function DataScience() {
           <CardMedia component="img" image={NetflixAV}/>
         </Slide>
       </Paper>
-      <Paper elevation={0} ref={refFour}>
+      <Paper className={classes.Paper} elevation={0} ref={refFour}>
         <Slide 
           in={show.itemFour}
           direction="right"
           {...(show.itemFour ? { timeout: 700 } : {})}
         >
           <CardContent>
-            <a rel=" noopener noreferrer"  href="https://nbviewer.jupyter.org/github/adhyttungga/Credit_Card_Data-Clustering/blob/main/ccdata_Clustering.ipynb"  target="_blank">
+            <a className={classes.link} rel=" noopener noreferrer"  href="https://nbviewer.jupyter.org/github/adhyttungga/Credit_Card_Data-Clustering/blob/main/ccdata_Clustering.ipynb"  target="_blank">
               <Typography variant="h3" component="p">
                 credit card data clustering
               </Typography>
@@ -118,14 +125,14 @@ export default function DataScience() {
           <CardMedia component="img" image={ccdataClustering}/>
         </Slide>
       </Paper>
-      <Paper elevation={0} ref={refThree}>
+      <Paper className={classes.Paper} elevation={0} ref={refThree}>
         <Slide 
           in={show.itemThree}
           direction="right"
           {...(show.itemThree ? { timeout: 700 } : {})}
         >
           <CardContent>
-            <a rel=" noopener noreferrer"  href="https://nbviewer.jupyter.org/github/adhyttungga/Bank-Loan-Clustering/blob/master/bankLoanCluster.ipynb"  target="_blank">
+            <a className={classes.link} rel=" noopener noreferrer"  href="https://nbviewer.jupyter.org/github/adhyttungga/Bank-Loan-Clustering/blob/master/bankLoanCluster.ipynb"  target="_blank">
               <Typography variant="h3" component="p">
                 bank loan clustering
               </Typography>
@@ -140,14 +147,14 @@ export default function DataScience() {
           <CardMedia component="img" image={loanClustering}/>
         </Slide>
       </Paper>
-      <Paper elevation={0} ref={refTwo}>
+      <Paper className={classes.Paper} elevation={0} ref={refTwo}>
         <Slide 
           in={show.itemTwo}
           direction="right"
           {...(show.itemTwo ? { timeout: 700 } : {})}
         >
           <CardContent>
-            <a rel=" noopener noreferrer"  href="https://nbviewer.jupyter.org/github/adhyttungga/Loan-Classification/blob/master/loanPred.ipynb"  target="_blank">
+            <a className={classes.link} rel=" noopener noreferrer"  href="https://nbviewer.jupyter.org/github/adhyttungga/Loan-Classification/blob/master/loanPred.ipynb"  target="_blank">
               <Typography variant="h3" component="p">
                 loan classification
               </Typography>
@@ -162,14 +169,14 @@ export default function DataScience() {
           <CardMedia component="img" image={loanClassification}/>
         </Slide>
       </Paper>
-      <Paper elevation={0} ref={refOne}>
+      <Paper className={classes.Paper} elevation={0} ref={refOne}>
         <Slide 
           in={show.itemOne}
           direction="right"
           {...(show.itemOne ? { timeout: 700 } : {})}
         >
           <CardContent>
-            <a rel=" noopener noreferrer"  href="https://nbviewer.jupyter.org/github/adhyttungga/rockpaperscissors-Classification/blob/master/rpsClassification.ipynb"  target="_blank">
+            <a className={classes.link} rel=" noopener noreferrer"  href="https://nbviewer.jupyter.org/github/adhyttungga/rockpaperscissors-Classification/blob/master/rpsClassification.ipynb"  target="_blank">
               <Typography variant="h3" component="p">
                 rock-paper-scissors image classification
               </Typography>

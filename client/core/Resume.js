@@ -8,9 +8,21 @@ import { makeStyles } from '@material-ui/core/styles'
 import Profile from './../assets/images/resume.jpg'
 
 const useStyles = makeStyles(theme => ({
-  root: {},
+  root: {
+    backgroundColor: theme.palette.primary.main,
+  },
+  Paper: {
+    backgroundColor: theme.palette.primary.main,
+    "& > *": {
+      backgroundColor: theme.palette.primary.main
+    }
+  },
   title: {
     margin: `${theme.spacing(5)}px 0`
+  },
+  tag: {
+    color: theme.palette.secondary.dark,
+    fontWeight: "bold"
   },
   flex: {
     display: "flex",
@@ -33,7 +45,10 @@ const useStyles = makeStyles(theme => ({
   loaded: {
     width: "40%",
     padding: 16,
-    paddingBottom: 24
+    paddingBottom: 24,
+    "@media (max-width: 600px)": {
+      width: "50%"
+    }
   },
   certificates: {
     display: "flex",
@@ -41,10 +56,16 @@ const useStyles = makeStyles(theme => ({
     "& > *": {
       margin: theme.spacing(2),
       width: "100%",
+      height: theme.spacing(10),
       "@media (min-width: 600px)": {
         width: "25%",
-        height: theme.spacing(10),
       }
+    }
+  },
+  link: {
+    color: theme.palette.secondary.dark,
+    "& > *": {
+      textAlign: "center"
     }
   }
 }))
@@ -81,7 +102,7 @@ export default function Resume() {
         divPos[`pos_${key}`] = Math.round(topPos(refObj[key].current))
       }
     }
-    console.log(divPos)
+    // console.log(divPos)
 
     const onScroll = () => {
       const scrollPos = window.scrollY + .9 * window.innerHeight
@@ -106,7 +127,7 @@ export default function Resume() {
       } else if (divPos.pos_ref_10 < scrollPos) {
         setShow(state => ({ ...state, item10: true }))
       }
-      console.log(divPos.pos_ref_6, divPos.pos_ref_7, divPos.pos_ref_8, divPos.pos_ref_9, divPos.pos_ref_10, scrollPos)
+      // console.log(divPos.pos_ref_6, divPos.pos_ref_7, divPos.pos_ref_8, divPos.pos_ref_9, divPos.pos_ref_10, scrollPos)
     }
 
     window.addEventListener("scroll", onScroll)
@@ -121,8 +142,8 @@ export default function Resume() {
         direction="right"
         {...(show.item10 ? { timeout: 1000 } : {})}
       >
-        <Paper elevation={0} ref={refObj.ref_10}>
-          <Typography variant="h3" component="p" className={classes.title}>
+        <Paper elevation={0} ref={refObj.ref_10} className={classes.Paper}>
+          <Typography variant="h2" component="p" className={classes.title}>
             → education
           </Typography>
         </Paper>
@@ -133,7 +154,7 @@ export default function Resume() {
         {...(show.item9 ? { timeout: 1000 } : {})}
       >
         <CardContent className={classes.Education} ref={refObj.ref_9}>
-          <Typography variant="body1" component="p">
+          <Typography variant="body1" className={props.classes.tag} component="p">
             Physics BS
           </Typography>
           <Typography variant="body2" component="p">
@@ -149,14 +170,14 @@ export default function Resume() {
 
 const PersonalData = React.forwardRef((props, ref) => {
   return (
-      <Paper elevation={0}>
+      <Paper elevation={0} className={props.classes.Paper}>
         <Slide 
         in={props.show.item13}
         direction="right"
         {...(props.show.item13 ? { timeout: 1000 } : {})}
         >
           <Paper elevation={0}>
-            <Typography variant="h3" component="p" className={props.classes.title}>
+            <Typography variant="h2" component="p" className={props.classes.title}>
               → resume
             </Typography>
           </Paper>
@@ -169,7 +190,7 @@ const PersonalData = React.forwardRef((props, ref) => {
           <div className={props.classes.flex}>
             <CardMedia component="img" className={props.classes.loaded} image={Profile}/>
             <CardContent className={props.classes.right}>
-              <Typography variant="body2" component="p">
+              <Typography variant="body2" className={props.classes.tag} component="p">
                 Location
               </Typography>
               <Typography variant="body1" component="p">
@@ -178,7 +199,7 @@ const PersonalData = React.forwardRef((props, ref) => {
               <Typography variant="body1" component="p">
                 <br/>
               </Typography>
-              <Typography variant="body2" component="p">
+              <Typography variant="body2" className={props.classes.tag} component="p">
                 Contact
               </Typography>
               <Typography variant="body1" component="p">
@@ -197,7 +218,7 @@ const PersonalData = React.forwardRef((props, ref) => {
         >
           <div className={props.classes.flex}>
             <CardContent className={props.classes.left}>
-              <Typography variant="body2" component="p">
+              <Typography variant="body2" className={props.classes.tag} component="p">
                 Skills
               </Typography>
               <Typography variant="body1" component="p">
@@ -259,14 +280,14 @@ const PersonalData = React.forwardRef((props, ref) => {
 
 const WorkExperience = React.forwardRef((props, ref) => {
   return (
-    <Paper elevation={0}>
+    <Paper elevation={0} className={props.classes.Paper}>
       <Slide 
         in={props.show.item8}
         direction="right"
         {...(props.show.item8 ? { timeout: 1000 } : {})}
       >
         <div ref={ref.ref_8}>
-            <Typography variant="h3" component="p" className={props.classes.title}>
+            <Typography variant="h2" component="p" className={props.classes.title}>
             → work experience
           </Typography>
         </div>
@@ -278,7 +299,7 @@ const WorkExperience = React.forwardRef((props, ref) => {
       >
         <div className={props.classes.flex} ref={ref.ref_7}>
           <CardContent className={props.classes.left}>
-            <Typography variant="body1" component="p">
+            <Typography variant="body1" className={props.classes.tag} component="p">
               Part Time
             </Typography>
             <Typography variant="body2" component="p">
@@ -302,7 +323,7 @@ const WorkExperience = React.forwardRef((props, ref) => {
       >
         <div className={props.classes.flex} ref={ref.ref_6}>
           <CardContent className={props.classes.left}>
-            <Typography variant="body1" component="p">
+            <Typography variant="body1" className={props.classes.tag} component="p">
               Garuda Indonesia
             </Typography>
             <Typography variant="body2" component="p">
@@ -329,7 +350,7 @@ const WorkExperience = React.forwardRef((props, ref) => {
       >
         <div className={props.classes.flex} ref={ref.ref_5}>
           <CardContent className={props.classes.left}>
-            <Typography variant="body1" component="p">
+            <Typography variant="body1" className={props.classes.tag} component="p">
             SBMPTN Jakarta Local Committee (Volunteer)
             </Typography>
             <Typography variant="body2" component="p">
@@ -353,7 +374,7 @@ const WorkExperience = React.forwardRef((props, ref) => {
       >
         <div className={props.classes.flex} ref={ref.ref_4}>
           <CardContent className={props.classes.left}>
-            <Typography variant="body1" component="p">
+            <Typography variant="body1" className={props.classes.tag} component="p">
               State University of Jakarta
             </Typography>
             <Typography variant="body2" component="p">
@@ -386,7 +407,7 @@ const WorkExperience = React.forwardRef((props, ref) => {
       >
         <div className={props.classes.flex} ref={ref.ref_3}>
           <CardContent className={props.classes.left}>
-            <Typography variant="body1" component="p">
+            <Typography variant="body1" className={props.classes.tag} component="p">
               Atri Pasifik
             </Typography>
             <Typography variant="body2" component="p">
@@ -409,14 +430,14 @@ const WorkExperience = React.forwardRef((props, ref) => {
 
 const Certificates = React.forwardRef((props, ref) => {
   return (
-      <Paper elevation={0}>
+      <Paper elevation={0} className={props.classes.Paper}>
         <Slide 
         in={props.show.item2}
         direction="right"
         {...(props.show.item2 ? { timeout: 1000 } : {})}
         >
           <Paper elevation={0}>
-            <Typography variant="h3" component="p" className={props.classes.title} ref={ref.ref_2}>
+            <Typography variant="h2" component="p" className={props.classes.title} ref={ref.ref_2}>
               → certificates
             </Typography>
           </Paper>
@@ -427,92 +448,92 @@ const Certificates = React.forwardRef((props, ref) => {
         {...(props.show.item1 ? { timeout: 1000 } : {})}
         >
           <Paper elevation={0} className={props.classes.certificates} ref={ref.ref_1}>
-            <Paper elevation={0}>
-              <a rel="noopener noreferrer" href="https://www.codepolitan.com/c/KLJP28D" target="_blank">
+            <Paper variant="outlined">
+              <a className={props.classes.link} rel="noopener noreferrer" href="https://www.codepolitan.com/c/KLJP28D" target="_blank">
                 <Typography variant="body2" component="p">
                   <em>Belajar Dasar-Dasar HTML dan CSS</em> (CODEPOLITAN)
                 </Typography>
               </a>
             </Paper>
-            <Paper elevation={0}>
-              <a rel="noopener noreferrer" href="https://www.codepolitan.com/c/9LSJNXQ" target="_blank">
+            <Paper variant="outlined">
+              <a className={props.classes.link} rel="noopener noreferrer" href="https://www.codepolitan.com/c/9LSJNXQ" target="_blank">
                 <Typography variant="body2" component="p">
                   <em>Belajar JavaScript Dasar</em> (CODEPOLITAN)
                 </Typography>
               </a>
             </Paper>
-            <Paper elevation={0}>
-              <a rel="noopener noreferrer" href="https://www.codepolitan.com/c/HF6RCYP" target="_blank">
+            <Paper variant="outlined">
+              <a className={props.classes.link} rel="noopener noreferrer" href="https://www.codepolitan.com/c/HF6RCYP" target="_blank">
                 <Typography variant="body2" component="p">
                   <em>Belajar JQuery Dasar</em> (CODEPOLITAN)
                 </Typography>
               </a>
             </Paper>
-            <Paper elevation={0}>
-              <a rel="noopener noreferrer" href="https://www.freecodecamp.org/certification/cap7_nemo/front-end-libraries" target="_blank">
+            <Paper variant="outlined">
+              <a className={props.classes.link} rel="noopener noreferrer" href="https://www.freecodecamp.org/certification/cap7_nemo/front-end-libraries" target="_blank">
                 <Typography variant="body2" component="p">
                   Front End Libraries (freeCodeCamp)
                 </Typography>
               </a>
             </Paper>
-            <Paper elevation={0}>
-              <a rel="noopener noreferrer" href="https://www.dicoding.com/certificates/53XEEOM1VXRN" target="_blank">
+            <Paper variant="outlined">
+              <a className={props.classes.link} rel="noopener noreferrer" href="https://www.dicoding.com/certificates/53XEEOM1VXRN" target="_blank">
                 <Typography variant="body2" component="p">
                   <em>Memulai Pemrograman dengan Python</em> (dicoding)
                 </Typography>
               </a>
             </Paper>
-            <Paper elevation={0}>
-              <a rel="noopener noreferrer" href="https://www.dicoding.com/certificates/JLX117K4JX72" target="_blank">
+            <Paper variant="outlined">
+              <a className={props.classes.link} rel="noopener noreferrer" href="https://www.dicoding.com/certificates/JLX117K4JX72" target="_blank">
                 <Typography variant="body2" component="p">
                   <em>Belajar Dasar Visualisasi Data</em> (dicoding)
                 </Typography>
               </a>
             </Paper>
-            <Paper elevation={0}>
-              <a rel="noopener noreferrer" href="https://www.dicoding.com/certificates/07Z6L09GMPQR" target="_blank">
+            <Paper variant="outlined">
+              <a className={props.classes.link} rel="noopener noreferrer" href="https://www.dicoding.com/certificates/07Z6L09GMPQR" target="_blank">
                 <Typography variant="body2" component="p">
                   <em>Belajar Machine Learning untuk Pemula</em> (dicoding)
                 </Typography>
               </a>
             </Paper>
-            <Paper elevation={0}>
-              <a rel="noopener noreferrer" href="https://www.freecodecamp.org/certification/cap7_nemo/data-analysis-with-python-v7" target="_blank">
+            <Paper variant="outlined">
+              <a className={props.classes.link} rel="noopener noreferrer" href="https://www.freecodecamp.org/certification/cap7_nemo/data-analysis-with-python-v7" target="_blank">
                 <Typography variant="body2" component="p">
                   Data Analysis with Python (freeCodeCamp)
                 </Typography>
               </a>
             </Paper>
-            <Paper elevation={0}>
-              <a rel="noopener noreferrer" href="https://www.kaggle.com/learn/certification/adhytiatungga/data-cleaning" target="_blank">
+            <Paper variant="outlined">
+              <a className={props.classes.link} rel="noopener noreferrer" href="https://www.kaggle.com/learn/certification/adhytiatungga/data-cleaning" target="_blank">
                 <Typography variant="body2" component="p">
                   Data Cleaning (kaggle)
                 </Typography>
               </a>
             </Paper>
-            <Paper elevation={0}>
-              <a rel="noopener noreferrer" href="https://www.kaggle.com/learn/certification/adhytiatungga/data-visualization" target="_blank">
+            <Paper variant="outlined">
+              <a className={props.classes.link} rel="noopener noreferrer" href="https://www.kaggle.com/learn/certification/adhytiatungga/data-visualization" target="_blank">
                 <Typography variant="body2" component="p">
                   Data Visualization (kaggle)
                 </Typography>
               </a>
             </Paper>
-            <Paper elevation={0}>
-              <a rel="noopener noreferrer" href="https://www.kaggle.com/learn/certification/adhytiatungga/intro-to-sql" target="_blank">
+            <Paper variant="outlined">
+              <a className={props.classes.link} rel="noopener noreferrer" href="https://www.kaggle.com/learn/certification/adhytiatungga/intro-to-sql" target="_blank">
                 <Typography variant="body2" component="p">
                   Intro to SQL (kaggle)
                 </Typography>
               </a>
             </Paper>
-            <Paper elevation={0}>
-              <a rel="noopener noreferrer" href="https://www.codepolitan.com/c/VH9QL1S" target="_blank">
+            <Paper variant="outlined">
+              <a className={props.classes.link} rel="noopener noreferrer" href="https://www.codepolitan.com/c/VH9QL1S" target="_blank">
                 <Typography variant="body2" component="p">
                   <em>Belajar MongoDB untuk Pemula</em> (CODEPOLITAN)
                 </Typography>
               </a>
             </Paper>
-            <Paper elevation={0}>
-              <a rel="noopener noreferrer" href="https://www.codepolitan.com/c/PZCJK01" target="_blank"> 
+            <Paper variant="outlined">
+              <a className={props.classes.link} rel="noopener noreferrer" href="https://www.codepolitan.com/c/PZCJK01" target="_blank"> 
                 <Typography variant="body2" component="p">
                   <em>Belajar GIT untuk Pemula</em> (CODEPOLITAN)
                 </Typography>

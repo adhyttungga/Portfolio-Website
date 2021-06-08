@@ -8,23 +8,26 @@ import {Link, withRouter} from 'react-router-dom'
 
 const isActive = (history, path) => {
   if (history.location.pathname == path)
-    return {color: '#ff4051'}
+    return {color: '#9aceff'}
   else
-      return {color: '#ffffff'}
+      return {color: '#fffdfe'}
 }
+
 const useStyles = makeStyles(theme => ({
   Appbar: {
     backgroundColor: theme.palette.primary.dark,
     flexGrow: 1
   },
   Logo: {
+    color: theme.palette.primary.light,
     flexGrow: 1
   }
 }))
+
 const Menu = withRouter(({history}) => {
   const classes = useStyles()
   return (
-    <AppBar position="static" className={classes.Appbar}>
+    <AppBar position="static" className={classes.Appbar} elevation={0}>
         <Toolbar>
             <Typography variant="h6" color="inherit" className={classes.Logo}>
                 Adhytia Tungga, BS

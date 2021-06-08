@@ -3,10 +3,8 @@ import { makeStyles } from "@material-ui/core/styles"
 import Paper from '@material-ui/core/Paper'
 import CardContent from '@material-ui/core/CardContent'
 import CardMedia from '@material-ui/core/CardMedia'
-import Grow from '@material-ui/core/Grow'
 import Slide from '@material-ui/core/Slide'
 import Typography from '@material-ui/core/Typography'
-import { useScrollTrigger } from '@material-ui/core'
 import ButtonMailto from './ButtonMailto'
 import profilePict from './../assets/images/profilePict.jpeg'
 import DataScience from './../assets/images/DataScience.png'
@@ -14,11 +12,15 @@ import WebDev from './../assets/images/WebDevelopment.jpg'
 import { Link } from 'react-router-dom'
 
 const useStyles = makeStyles(theme => ({
+    root: {
+        backgroundColor: theme.palette.primary.main,
+    },
     Paper: {
         overflow: "auto",
         position: "relative",
         maxWidth: 1000,
         margin: `${theme.spacing(10)}px auto`,
+        backgroundColor: theme.palette.primary.main,
         '@media (max-width: 600px)': {
             padding: `${theme.spacing(0)}px ${theme.spacing(1.5)}px`
         }
@@ -28,7 +30,7 @@ const useStyles = makeStyles(theme => ({
         left: 40, bottom: 20,
         float: "left",
         padding: `${theme.spacing(3)}px ${theme.spacing(1.5)}px ${theme.spacing(2)}px`,
-        color: theme.palette.protectedTitle,
+        color: theme.palette.secondary.main,
         '@media (max-width: 600px)': {
             position: "relative",
             left: 0, bottom:0,
@@ -45,7 +47,8 @@ const useStyles = makeStyles(theme => ({
     },
     wrapper: {
         display: "flex",
-        flexFlow: "column"
+        flexFlow: "column",
+        backgroundColor: theme.palette.primary.main
     },
     work: {
         margin: `${theme.spacing(2)}px 0`
@@ -69,6 +72,9 @@ const useStyles = makeStyles(theme => ({
         "&:hover": {
             opacity: "0.5"
         }
+    },
+    link: {
+        color: theme.palette.secondary.dark
     }
 }))
 
@@ -109,7 +115,7 @@ export default function Home() {
     }, [])
     
     return (
-        <div>
+        <div className={classes.root}>
             <Slide direction="right"
                 in={visible.itemThree}
                 {...(visible.itemThree ? { timeout: 1000 } : {})}
@@ -164,9 +170,9 @@ const Resume = React.forwardRef((props, ref) => {
             {...(props.visible.itemOne ? { timeout: 1000 } : {})}
             >
             <Paper elevation={0} className={props.classes.Paper} ref={ref}>
-                <CardContent> 
+                <CardContent color="inherit"> 
                     <Typography variant="h6" component="p" align="center">
-                        Check out my <Link to="/resume">resume</Link> for more→
+                        Check out my <Link to="/resume" className={props.classes.link}>resume</Link> for more→
                     </Typography>
                     <Typography variant="h6" component="p" align="center">
                         Feel free to chat <ButtonMailto mailto="mailto:adhyttungga.jkt@gmail.com" label="adhyttungga.jkt@gmail.com"/>

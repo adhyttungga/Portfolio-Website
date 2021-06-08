@@ -8,6 +8,7 @@ import { makeStyles } from '@material-ui/core/styles'
 
 const useStyles = makeStyles(theme => ({
   root: {
+    backgroundColor: theme.palette.primary.dark,
     position: "relative",
     bottom: 0,
     flexGrow: 1
@@ -18,6 +19,7 @@ const useStyles = makeStyles(theme => ({
     }
   },
   message: {
+    color: theme.palette.primary.light,
     flexGrow: 1,
     fontSize: "1em",
     '@media (max-width: 600px)': {
@@ -26,9 +28,10 @@ const useStyles = makeStyles(theme => ({
     }
   },
   Icon: {
+    color: theme.palette.primary.light,
     "&:hover": {
       transition: "0.5s ease", 
-      backgroundColor: "white"
+      color: theme.palette.secondary.main
     }
   }
 }))

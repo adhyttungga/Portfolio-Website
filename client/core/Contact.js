@@ -7,10 +7,14 @@ import { Paper, Typography, Slide } from '@material-ui/core'
 const useStyles = makeStyles(theme => ({
   root: {
     maxWidth: "100%",
-    margin: `50vh auto`
+    margin: `50vh auto`,
+    backgroundColor: theme.palette.primary.main
   },
   Contact: {
-    margin: `${theme.spacing(3)}px auto`
+    margin: `${theme.spacing(3)}px auto`,
+    "& > *": {
+      color: theme.palette.secondary.dark
+    }
   }
 }))
 

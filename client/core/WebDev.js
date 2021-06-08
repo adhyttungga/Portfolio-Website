@@ -5,28 +5,21 @@ import Slide from '@material-ui/core/Slide'
 import Typography from '@material-ui/core/Typography'
 
 const useStyles = makeStyles(theme => ({
-  div: {
-    height: 900,
-    width: 300,
-    backgroundColor: "red",
-    margin: `${theme.spacing(3)}px`
-  },
   wrapper: {
     display: "flex",
-    flexFlow: "column"
+    flexFlow: "column",
+    backgroundColor: theme.palette.primary.main
   },
   jumbotron: {
-    margin: `${theme.spacing(20)}px 0`
+    margin: `${theme.spacing(20)}px 0`,
+    backgroundColor: theme.palette.primary.main
   }
 }))
 
 const WebDev = () => {
   const classes = useStyles()
   const [show, setShow] = React.useState({
-    itemOne: false,
-    itemTwo: false,
-    itemThree: false,
-    itemFour: false
+    itemOne: false
   })
 
   const refOne = React.useRef(null),
@@ -35,49 +28,34 @@ const WebDev = () => {
   React.useEffect(() => {
     window.scrollTo(0, 0)
 
-    setShow(state => ({ ...state, itemFour: true}))
-    setShow(state => ({ ...state, itemThree: true}))
-
-    const topPos = (e) => e.getBoundingClientRect().top
-    const divOnePos = topPos(refOne.current),
-    divTwoPos = topPos(refTwo.current)
+    setShow(state => ({ ...state, itemOne: true}))
     
-    const onScroll = () => {
-      const scrollPos = window.scrollY + window.innerHeight
-      if (divOnePos < scrollPos) {
-        setShow(state => ({ ...state, itemOne: true }))
-      } else if (divTwoPos < scrollPos) {
-        setShow(state => ({ ...state, itemTwo: true }))
-      }
-    }
+    // const topPos = (e) => e.getBoundingClientRect().top
+    // const divOnePos = topPos(refOne.current),
+    // divTwoPos = topPos(refTwo.current)
+    
+    // const onScroll = () => {
+    //   const scrollPos = window.scrollY + window.innerHeight
+    //   if (divOnePos < scrollPos) {
+    //     setShow(state => ({ ...state, itemOne: true }))
+    //   } else if (divTwoPos < scrollPos) {
+    //     setShow(state => ({ ...state, itemTwo: true }))
+    //   }
+    // }
 
-    window.addEventListener("scroll", onScroll)
-    return () => window.removeEventListener("scroll", onScroll)
+    // window.addEventListener("scroll", onScroll)
+    // return () => window.removeEventListener("scroll", onScroll)
   }, [])
 
   return (
     <React.Fragment>
       <Paper elevation={0} className={classes.wrapper}>
-        <Slide direction="right" {...(show.itemFour ? { timeout: 1000 } : {})} in={show.itemFour}>
+        <Slide direction="right" {...(show.itemOne ? { timeout: 1000 } : {})} in={show.itemOne}>
         <Paper elevation={0} className={classes.jumbotron} id="back-to-top-anchor">
           <Typography variant="h2" component="p" align="center">
             <strong>web-development</strong>
           </Typography>
         </Paper>
-        </Slide>
-        <Slide direction="right" {...(show.itemThree ? { timeout: 1000 } : {})} in={show.itemThree}>
-          <Paper elevation={0} className={classes.div}>
-            <p>tag here</p>
-            <p>tag here</p>
-            <p>tag here</p>
-            <p>tag here</p>
-          </Paper>
-        </Slide>
-        <Slide direction="right" {...(show.itemTwo ? { timeout: 1000 } : {})} in={show.itemTwo}>
-          <Paper elevation={0} className={classes.div} ref={refTwo}/>
-        </Slide>
-        <Slide direction="right" {...(show.itemOne ? { timeout: 1000 } : {})} in={show.itemOne}>
-          <Paper elevation={0} className={classes.div} ref={refOne}/>
         </Slide>
       </Paper>
     </React.Fragment>
