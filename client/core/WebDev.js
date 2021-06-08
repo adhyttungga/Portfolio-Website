@@ -1,7 +1,6 @@
 import React from 'react'
 import { makeStyles } from '@material-ui/core/styles'
 import Paper from '@material-ui/core/Paper'
-import Grow from '@material-ui/core/Grow'
 import Slide from '@material-ui/core/Slide'
 import Typography from '@material-ui/core/Typography'
 
@@ -59,27 +58,27 @@ const WebDev = () => {
   return (
     <React.Fragment>
       <Paper elevation={0} className={classes.wrapper}>
-        <Slide in={show.itemFour} direction="up">
+        <Slide direction="right" {...(show.itemFour ? { timeout: 1000 } : {})} in={show.itemFour}>
         <Paper elevation={0} className={classes.jumbotron} id="back-to-top-anchor">
           <Typography variant="h2" component="p" align="center">
             <strong>web-development</strong>
           </Typography>
         </Paper>
         </Slide>
-        <Grow in={show.itemThree}>
+        <Slide direction="right" {...(show.itemThree ? { timeout: 1000 } : {})} in={show.itemThree}>
           <Paper elevation={0} className={classes.div}>
             <p>tag here</p>
             <p>tag here</p>
             <p>tag here</p>
             <p>tag here</p>
           </Paper>
-        </Grow>
-        <Grow in={show.itemTwo}>
+        </Slide>
+        <Slide direction="right" {...(show.itemTwo ? { timeout: 1000 } : {})} in={show.itemTwo}>
           <Paper elevation={0} className={classes.div} ref={refTwo}/>
-        </Grow>
-        <Grow in={show.itemOne}>
+        </Slide>
+        <Slide direction="right" {...(show.itemOne ? { timeout: 1000 } : {})} in={show.itemOne}>
           <Paper elevation={0} className={classes.div} ref={refOne}/>
-        </Grow>
+        </Slide>
       </Paper>
     </React.Fragment>
   )

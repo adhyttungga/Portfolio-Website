@@ -110,8 +110,8 @@ export default function Home() {
     
     return (
         <div>
-            <Grow in={visible.itemThree}
-                style={{ transformOrigin: 'bottom' }} 
+            <Slide direction="right"
+                in={visible.itemThree}
                 {...(visible.itemThree ? { timeout: 1000 } : {})}
             >
                 <Paper elevation={0} className={classes.Paper}>
@@ -124,7 +124,7 @@ export default function Home() {
                     </CardContent>
                     <CardMedia component="img" className={classes.media} image={profilePict} title="Profile Picture"/>
                 </Paper>
-            </Grow>
+            </Slide>
             <Paper elevation={0} className={classes.wrapper}>
                 <Work {...props} ref={refTwo}/>
                 <Resume {...props} ref={refOne}/>
@@ -159,8 +159,8 @@ const Work = React.forwardRef((props, ref) => {
 
 const Resume = React.forwardRef((props, ref) => {
     return (
-        <Grow in={props.visible.itemOne}
-            style={{ transformOrigin: '50% 50%' }} 
+        <Slide direction="right" 
+            in={props.visible.itemOne}
             {...(props.visible.itemOne ? { timeout: 1000 } : {})}
             >
             <Paper elevation={0} className={props.classes.Paper} ref={ref}>
@@ -173,6 +173,6 @@ const Resume = React.forwardRef((props, ref) => {
                     </Typography>
                 </CardContent>
             </Paper>
-        </Grow>
+        </Slide>
     )
 })

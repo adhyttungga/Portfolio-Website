@@ -67,7 +67,7 @@ export default function DataScience() {
     <Paper elevation={0}>
       <Slide 
         in={show.itemSix}
-        direction="up"
+        direction="right"
         {...(show.itemSix ? { timeout: 700 } : {})}
       >
         <Paper elevation={0} className={classes.jumbotron}>
@@ -77,7 +77,7 @@ export default function DataScience() {
       <Paper elevation={0}>
         <Slide 
           in={show.itemFive}
-          direction="up"
+          direction="right"
           {...(show.itemFive ? { timeout: 700 } : {})}
         >
           <CardContent>
@@ -90,7 +90,7 @@ export default function DataScience() {
         </Slide>
         <Slide 
           in={show.itemFive}
-          direction="up"
+          direction="right"
           {...(show.itemFive ? { timeout: 1500 } : {})}
         >
           <CardMedia component="img" image={NetflixAV}/>
@@ -99,7 +99,7 @@ export default function DataScience() {
       <Paper elevation={0} ref={refFour}>
         <Slide 
           in={show.itemFour}
-          direction="up"
+          direction="right"
           {...(show.itemFour ? { timeout: 700 } : {})}
         >
           <CardContent>
@@ -112,7 +112,7 @@ export default function DataScience() {
         </Slide>
         <Slide 
           in={show.itemFour}
-          direction="up"
+          direction="right"
           {...(show.itemFour ? { timeout: 1500 } : {})}
         >
           <CardMedia component="img" image={ccdataClustering}/>
@@ -121,7 +121,7 @@ export default function DataScience() {
       <Paper elevation={0} ref={refThree}>
         <Slide 
           in={show.itemThree}
-          direction="up"
+          direction="right"
           {...(show.itemThree ? { timeout: 700 } : {})}
         >
           <CardContent>
@@ -134,7 +134,7 @@ export default function DataScience() {
         </Slide>
         <Slide 
           in={show.itemThree}
-          direction="up"
+          direction="right"
           {...(show.itemThree ? { timeout: 1500 } : {})}
         >
           <CardMedia component="img" image={loanClustering}/>
@@ -143,7 +143,7 @@ export default function DataScience() {
       <Paper elevation={0} ref={refTwo}>
         <Slide 
           in={show.itemTwo}
-          direction="up"
+          direction="right"
           {...(show.itemTwo ? { timeout: 700 } : {})}
         >
           <CardContent>
@@ -156,7 +156,7 @@ export default function DataScience() {
         </Slide>
         <Slide 
           in={show.itemTwo}
-          direction="up"
+          direction="right"
           {...(show.itemTwo ? { timeout: 1500 } : {})}
         >
           <CardMedia component="img" image={loanClassification}/>
@@ -165,7 +165,7 @@ export default function DataScience() {
       <Paper elevation={0} ref={refOne}>
         <Slide 
           in={show.itemOne}
-          direction="up"
+          direction="right"
           {...(show.itemOne ? { timeout: 700 } : {})}
         >
           <CardContent>
@@ -178,7 +178,7 @@ export default function DataScience() {
         </Slide>
         <Slide 
           in={show.itemOne}
-          direction="up"
+          direction="right"
           {...(show.itemOne ? { timeout: 1500 } : {})}
         >
           <CardMedia component="img" image={rpsClassification}/>
