@@ -4,6 +4,7 @@ import cors from 'cors'
 import helmet from 'helmet'
 import { MongoClient } from 'mongodb'
 import template from './../template'
+require('dotenv').config()
 
 //comment out before building for production
 // import devBundle from './devBundle'
@@ -65,6 +66,7 @@ app.listen(port, function onStart(err) {
 
 // Database Connection URL
 const url = process.env.MONGODB_URI || 'mongodb://localhost:27017/portfolioWebsite'
+
 // Use connect method to connect to the server
 MongoClient.connect(url, { useNewUrlParser: true, useUnifiedTopology: true },(err, db)=>{
   console.log("Connected successfully to mongodb server")
