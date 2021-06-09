@@ -2,7 +2,7 @@
 
 This is my portfolio website made with MERN stack.
 
-You can check it out [here] (https://adhytia-portfolio-website.herokuapp.com/).
+You can check it out [here] (https://adhytia-portfolio-website.herokuapp.com/)
 
 ## Technologies:
 - Language: Javascript
