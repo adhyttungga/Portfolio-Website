@@ -7,7 +7,7 @@ import template from './../template'
 require('dotenv').config()
 
 //comment out before building for production
-// import devBundle from './devBundle'
+import devBundle from './devBundle'
 
 // modules for server side rendering
 import React from 'react'
@@ -23,7 +23,7 @@ import theme from './../client/theme'
 const app = express()
 
 //comment out before building for production
-// devBundle.compile(app)
+devBundle.compile(app)
 
 // secure apps by setting various HTTP headers
 app.use(helmet())

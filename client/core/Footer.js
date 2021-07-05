@@ -1,7 +1,8 @@
 import React from 'react'
 import WhatsAppIcon from '@material-ui/icons/WhatsApp'
 import LinkedInIcon from '@material-ui/icons/LinkedIn'
-import FacebookIcon from '@material-ui/icons/Facebook';
+import FacebookIcon from '@material-ui/icons/Facebook'
+import GitHubIcon from '@material-ui/icons/GitHub'
 import { AppBar, Toolbar, Typography, IconButton } from "@material-ui/core"
 import { Link, withRouter } from 'react-router-dom'
 import { makeStyles } from '@material-ui/core/styles'
@@ -52,6 +53,11 @@ const Footer = withRouter(() => {
         <a rel="noopener noreferrer" href="https://www.linkedin.com/in/adhytiatungga/" target="_blank">
           <IconButton aria-label="LinkedIn" className={classes.Icon}>
             <LinkedInIcon/>
+          </IconButton>
+        </a>
+        <a rel="noopener noreferrer" href="https://github.com/adhyttungga" target="_blank">
+          <IconButton aria-label="GitHub" className={classes.Icon}>
+            <GitHubIcon/>
           </IconButton>
         </a>
         <a rel="noopener noreferrer" href="https://wa.me/6281296883363" target="_blank">
